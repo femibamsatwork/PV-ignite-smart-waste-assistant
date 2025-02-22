@@ -1,18 +1,29 @@
-"use client";
-import Link from "next/link";
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import HeroSection from "../components/HeroSection";
+
+// import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold mb-4">
-        Welcome to the Smart Waste Sorting Assistant
-      </h1>
-      <p className="mb-4">Use AI to classify waste items from images or webcam feed.</p>
-      <Link href="/classify">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-          Get Started
-        </button>
-      </Link>
-    </div>
-  );
+  return <HeroSection />;
+    // return (
+    //     <>
+    //         <Head>
+    //             <title>Smart Waste Assistant</title>
+    //         </Head>
+    //         <Navbar />
+    //         <main>
+    //             <section id="hero">
+    //                 <Image src="/images/smart-waste.png" alt="Smart Waste Sorting" width={400} height={300} />
+    //                 <div className="hero-text">
+    //                     <h2>Here to Make Recycling Easy</h2>
+    //                     <p>Scan your waste and find the right bin every time.</p>
+    //                 </div>
+    //             </section>
+    //         </main>
+    //         <footer>
+    //             <p>&copy; 2025 Smart Waste Assistant. All rights reserved.</p>
+    //         </footer>
+    //     </>
+    // );
 }

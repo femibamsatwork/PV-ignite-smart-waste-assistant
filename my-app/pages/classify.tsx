@@ -52,11 +52,9 @@ export default function Classify() {
   // Start Webcam
   const startWebcam = async () => {
     if (!isWebcamActive && model) {
-      const webcam = new tmImage.Webcam(200, 200, true); // width, height, flip
+      const webcam = new tmImage.Webcam(500, 500, true); // width, height, flip
       await webcam.setup(); // request access to webcam
       await webcam.play();
-
-      
 
       webcamRef.current = webcam;
       document.getElementById("webcam-container")?.appendChild(webcam.canvas);
@@ -69,7 +67,6 @@ export default function Classify() {
   const loop = async () => {
     if (webcamRef.current) {
       webcamRef.current.update();
-      await predictFromWebcam();
       requestAnimationFrame(loop);
     }
   };
@@ -89,57 +86,81 @@ export default function Classify() {
       webcamRef.current.stop();
       setIsWebcamActive(false);
     }
+    const container = document.getElementById("webcam-container");
+    if (container) {
+      container.innerHTML = "";
+    }
   };
 
   // Once user is happy, go to /result to see final predictions
-  const confirmWebcamPrediction = () => {
+  const confirmWebcamPrediction = async () => {
+    await predictFromWebcam();
+    stopWebcam();
     router.push("/result");
   };
 
   return (
     <div className="flex flex-col items-center justify-center p-6">
-      <h1 className="text-2xl font-bold mb-4">Classification Page</h1>
+      <h1 className="text-2xl font-bold mb-4">Waste Wiz</h1>
+      {/* <h1 className="text-2xl font-bold mb-4">Classification Page</h1> */}
 
       {/* Image Upload Section */}
-      <div>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
-        {image && (
-          <img src={image} alt="Uploaded Waste" className="mt-2 w-48" />
-        )}
-      </div>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2"
-        onClick={predictFromImage}
-      >
-        Predict from Image
-      </button>
+
+      {!isWebcamActive && (
+        <>
+          <div className="flex flex-col items-center">
+            <input className="flex items-center" type="file" accept="image/*" onChange={handleImageUpload} />
+            {image && (
+              <img src={image} alt="Uploaded Waste" className="mt-2 w-96" />
+            )}
+          </div>
+          <div className="flex items-center gap-4 mt-2">
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              onClick={predictFromImage}
+            >
+              Predict from Image
+            </button>
+            <button
+              className="bg-green-600 text-white px-4 py-2 rounded-md"
+              onClick={startWebcam}
+            >
+              Use Webcam
+            </button>
+          </div>
+        </>
+
+      )}
 
       {/* Webcam Section */}
-      <div className="mt-6">
-        <button
-          className="bg-green-600 text-white px-4 py-2 rounded-md"
-          onClick={startWebcam}
-        >
-          Start Webcam
-        </button>
-        <button
+      <div className="mt-6 flex flex-col items-center">
+        <div id="webcam-container" className="" />
+
+        {isWebcamActive && (
+          <>
+            <div className="flex items-center gap-4 mt-2">
+              <button
+              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              onClick={confirmWebcamPrediction}
+              >
+                Predict from Webcam
+              </button>
+              <button
+                className="bg-green-600 text-white px-4 py-2 rounded-md"
+                onClick={stopWebcam}
+              >
+                Upload Image
+              </button>
+            </div>
+            
+          </>
+        )}
+        {/* <button
           className="bg-red-500 text-white px-4 py-2 rounded-md ml-4"
           onClick={stopWebcam}
         >
           Stop Webcam
-        </button>
-
-        {/* Webcam Canvas will appear here */}
-        <div id="webcam-container" className="mt-4" />
-
-        {isWebcamActive && (
-          <button
-            className="bg-yellow-500 text-white px-4 py-2 rounded-md mt-2"
-            onClick={confirmWebcamPrediction}
-          >
-            Confirm Webcam Prediction
-          </button>
-        )}
+        </button> */}
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
 "use client";
 import { useClassification } from "../context/ClassificationContext";
+import { useState } from "react";
+
+interface Prediction {
+  className: string;
+  probability: number;
+}
 
 export default function Result() {
   const { predictions } = useClassification();
