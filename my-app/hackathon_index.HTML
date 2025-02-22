@@ -1,205 +1,249 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Waste Assistant</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="top-bar">
-            <div class="logo">
-                <img src="path/to/logo.png" alt="Smart Waste Assistant Logo">
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#" class="create-site">Create a Site</a></li>
-                </ul>
-            </nav>
-        </div>
-        <h1>Smart Waste Assistant</h1>
-    </header>
-    <main>
-        <section id="hero">
-            <img src="path/to/your/image.jpg" alt="Woman scanning a plastic bottle in front of futuristic recycling bins">
-            <div class="hero-text">
-                <h2>Make Recycling Easy</h2>
-                <p>Scan your waste and find the right bin every time.</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Smart Waste Assistant. All rights reserved.</p>
-    </footer>
-    <script src="scripts.js"></script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Waste Assistant</title>
+    <title>Waste Wiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #EAEFE3; /* Alabaster */
-            color: #333;
+            background-color: #f5f5f5;
         }
-
-        header {
-            background-color: #3F4A2D; /* Dark moss green */
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .top-bar {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #E4E7D3; /* Beige */
-            border-bottom: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .logo img {
-            height: 40px;
-        }
-
-        .search-bar input {
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
+        .navbar a {
             text-decoration: none;
-            color: #3F4A2D; /* Dark moss green */
+            color: black;
+            margin: 0 10px;
         }
-
-        nav ul li a.create-site {
-            background-color: #B3B488; /* Sage */
+        .navbar .sign-up {
+            background-color: #588157; /* Forest green background */
             color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
-
-        a {
-            color: #3F4A2D; /* Dark moss green */
-            text-decoration: none; /* Optional: To remove underline from links */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 20px;
         }
-
-        a:hover {
-            color: #3F4A2D; /* Dark moss green */
-            text-decoration: underline; /* Optional: To add underline on hover */
+        .text-section {
+            max-width: 50%;
         }
-
-
-        #hero {
+        .text-section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .text-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .text-section .sign-up-btn {
+            background-color: #588157; /* Forest green background */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .image-section img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .green-strip {
+            background-color: #588157; /* Forest green background */
+            padding: 20px;
+            text-align: center;
+        }
+        .green-strip h2 {
+            color: white;
+        }
+        .green-strip p {
+            color: white;
+        }
+        .green-strip .icon {
+            width: 200px; /* Match the width of the .card */
+            height: 200px; /* Match the height of the .card */
+            object-fit: cover;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background-color:  #588157;
+            padding: 10px;
+        }
+        .green-block {
+            background-color: #f5f5f5; /* Match this to the background color of the entire website */
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .template-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .template-cards .card {
+            background-color: #A3B18A; /* New background color for theme cards */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #588157; /* Forest green text */
+        }
+        .template-cards .card a {
+            color: #588157; /* Forest green text */
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #588157; /* Forest green background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .testimonial-section {
+            background-color: #f5f5f5;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .testimonial-section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .testimonial-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .testimonial {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
-            background-color: #E4E7D3; /* Beige */
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
             padding: 20px;
-        }
-
-        #hero img {
-            max-width: 25%;
-            height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .hero-text {
-            text-align: center;
-            margin-left: 20px;
+        .testimonial img {
+            max-width: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
         }
-
-        .hero-text h2 {
-            margin: 10px 0;
-            color: #3F4A2D; /* Dark moss green */
+        .testimonial .content {
+            text-align: left;
         }
-
-        .hero-text p {
+        .testimonial .content h3 {
+            margin: 0 0 10px;
+        }
+        .testimonial .content p {
+            margin: 0;
+            font-size: 16px;
             color: #666;
         }
-
-        footer {
-            background-color: #BFAE62; /* Ecru */
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        .testimonial .content .author {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="top-bar">
-            <div class="logo">
-                <img src="Hackathon Images/Recycle2.jpg" alt="Smart Waste Assistant Logo">
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#">Classification</a></li>
-                    <li><a href="#">Results</a></li>
-                    <!--<li><a href="#" class="create-site">Create a Site</a></li>-->
-                </ul>
-            </nav>
+    <div class="navbar">
+        <div class="logo">
+            <img src="Hackathon Images/logoFR.png" alt="Waste Wiz Logo" style="height: 40px;">
         </div>
-        <h1>Smart Waste Assistant</h1>
-    </header>
-    <main>
-        <section id="hero">
-            <img src="Hackathon Images/Smart Waste img.png" alt="Woman scanning a plastic bottle in front of futuristic recycling bins">
-            <div class="hero-text">
-                <h2>Here To Make Recycling Easy</h2>
-                <p>Scan your waste and find the right bin every time.</p>
+        <div class="nav-links">
+            <a href="#">How It Works</a>
+            <a href="#">Features</a>
+            <a href="#">Get Started</a>
+            <a href="#">Eco Insights</a>
+            <a href="#" class="sign-up">Sign up</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-section">
+            <h1>Sort Waste Smarter with AI</h1>
+            <p>Revolutionize your recycling with Waste Wiz, the smart waste sorting assistant that identifies your items in an instant.</p>
+            <button class="sign-up-btn">Sign up today</button>
+        </div>
+        <div class="image-section">
+            <img src="Hackathon Images/image7.png" alt="Waste Wiz App Screens">
+        </div>
+    </div>
+    <div class="green-strip">
+        <h2>The #1 Intelligent Waste Sorting Solution</h2>
+        <p>As endorsed by top eco-friendly brands</p>
+        <div class="icon-container">
+            <img src="Hackathon Images/image3.png" alt="Eco-friendly icon 1" class="icon">
+            <img src="Hackathon Images/image5.png" alt="Eco-friendly icon 2" class="icon">
+            <img src="Hackathon Images/image6.png" alt="Eco-friendly icon 3" class="icon">
+            <img src="Hackathon Images/image8.png" alt="Eco-friendly icon 4" class="icon">
+            <img src="Hackathon Images/image9.png" alt="Eco-friendly icon 5" class="icon">
+        </div>
+    </div>
+    <div class="green-block">
+        <div class="sort-waste-smarter">
+        </div>
+        <div class="template-cards">
+            <div class="card">
+                <h3>Effortless Sorting</h3>
+                <p>Sort waste effortlessly with AI precision.</p>
+                <a href="#">Learn more</a>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Smart Waste Assistant. All rights reserved.</p>
-    </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Page Loaded");
-            // Add any interactive functionality here
-        });
-    </script>
-</body>
-</html> 
-
+            <div class="card">
+                <h3>Eco Reminders</h3>
+                <p>Stay green with eco-friendly waste alerts.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="card">
+                <h3>Camera Snap</h3>
+                <p>Instantly classify items using your camera.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="card">
+                <h3>Sustainable Tips</h3>
+                <p>Receive daily eco-friendly disposal tips.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="card">
+                <h3>Eco Insights</h3>
+                <p>Gain insights for reduced waste impact.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="card">
+                <h3>Instant Analysis</h3>
+                <p>Quickly determine item recyclability with AI.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-section">
+        <h2>User Testimonials</h2>
+        <p>Insights from users revolutionizing waste management</p>
+        <div class="testimonial">
+            <img src="Hackathon Images/Smart Waste img.png" alt="User Photo">
+            <div class="content">
+                <h3>Emily Johnson</h3>
+                <p>Environmental Scientist at EcoTech</p>
+                <p>"After struggling to sort waste in a busy work environment, this app has completely transformed our approach. It takes the guesswork out with incredible accuracy—sorting our waste right with a simple scan, and we get benefit points! We're not just reducing waste; we're doing it intelligently and effortlessly, and as a community. Our conscience and the planet thanks you! Thank you WasteWiz!"</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>The #1 Intelligent Waste Sorting Solution</h2>
+        <p>As endorsed by top eco-friendly brands</p>
+        <h6>*Not a factual claim (currently).</h6>
+    </div>
