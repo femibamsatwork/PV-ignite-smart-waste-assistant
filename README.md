@@ -1,1 +1,1 @@
-# PV-ignite-smart-waste-assistant
+# PV_ignite_smart-waste-assistant
